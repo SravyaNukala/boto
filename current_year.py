@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from common_variables import years, Current_year, months_num, days_num
+from common_variables import years, Current_year
 
 import pandas as pd
 from datetime import date, timedelta
@@ -9,7 +9,7 @@ all_dates=[]
 exception_dates=[]
 retaining_dates=[]
 
-#Will send the dates of current year to delete_folders script. Every Monday date folders and past seven days folders won't get deleted. 
+#Will send the dates of current year to delete_folders script. Every Monday date folders and past seven days folders won't get deleted.
 
 def allmondays(year):
     return pd.date_range(start=str(year), end=str(year+1),
@@ -24,7 +24,7 @@ def exception_days():
         exception_dates.append(a)
 
     return exception_dates
-
+    
 def all_days():
     start_date = date(Current_year, 1, 1)
     end_date = date.today()
@@ -36,12 +36,8 @@ def all_days():
     return all_dates
 
 def current_year():
-  print("Current_year")
   retaining_dates=exception_days()
-  print("Retaining dates are: " ,retaining_dates)
   total_days=all_days()
   final_days = [i for i in total_days if i not in retaining_dates]
-  print("The list after performing remove operation is : " + str(final_days))
   for x in final_days:
-     delete_folders.delete_folder(Current_year,x)
-
+     delete_folders.delete_folder(Current_year,x)    

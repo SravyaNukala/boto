@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from common_variables import years, Current_year, months_num, days_num
+from common_variables import years, Current_year
 
 import pandas as pd
 from datetime import date, timedelta
@@ -14,4 +14,3 @@ for year in years:
   current_year.current_year()
  else:
   previous_years.previous_years(year)
-

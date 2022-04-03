@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from common_variables import years, Current_year, months_num, days_num
+from common_variables import months_num, days_num
 
 import pandas as pd
 from datetime import date, timedelta
